@@ -1,0 +1,25 @@
+2023-04-19 14:48:39,678	WARNING deprecation.py:45 -- DeprecationWarning: `ray.rllib.utils.torch_ops.[...]` has been deprecated. Use `ray.rllib.utils.torch_utils.[...]` instead. This will raise an error in the future!
+Training with the configurations
+{'NAME': 'advbot-v6', 'run_name': None, 'seed': 77, 'probs': 0.8, 'graph_algorithm': 'node2vec', 'WALK_P': 1, 'WALK_Q': 50, 'model_type': 'CONV', 'node_embed_dim': 6, 'num_filters': 8, 'validation_graphs': [], 'reward_shaping': None, 'num_workers': 5, 'num_gpus': 0, 'graph_feature': 'gcn', 'lr': 0.0003, 'entropy_coeff': 0.01, 'training_iteration': 200, 'checkpoint_freq': 5, 'wandb_key': ''}
+Warning: Encountered non-positive value (0.0) for logarithm
+Warning: Encountered non-positive value (0.0) for logarithm
+Traceback (most recent call last):
+  File "ppo_single_large_hiar.py", line 50, in <module>
+    train(**config)
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/train.py", line 71, in train
+    env = env_creator(None)
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/train.py", line 54, in env_creator
+    env = AdvBotEnvSingleDetectLargeHiar(seed=seed,
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/gym-bot/gym_bot/envs/advbot_env_single_detect_large_hiar.py", line 145, in __init__
+    self.initialize()
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/gym-bot/gym_bot/envs/advbot_env_single_detect_large_hiar.py", line 409, in initialize
+    entropies=self.calculate_structural_entropies()
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/gym-bot/gym_bot/envs/advbot_env_single_detect_large_hiar.py", line 365, in calculate_structural_entropies
+    x = partition_tree.build_coding_tree(3)
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/gym-bot/gym_bot/envs/advbot_env_single_detect_large_hiar.py", line 1124, in build_coding_tree
+    leaf_up_delta,id_mapping,leaf_up_dict = self.leaf_up()
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/gym-bot/gym_bot/envs/advbot_env_single_detect_large_hiar.py", line 1075, in leaf_up
+    new_ent = self.leaf_up_entropy(subgraph_node_dict,sub_root,node_id)
+  File "/home/sudingli/Adversarial_SocialBots_WWW22/gym-bot/gym_bot/envs/advbot_env_single_detect_large_hiar.py", line 1046, in leaf_up_entropy
+    ent += -(node.g / self.VOL) * math.log2(node.vol / node_p.vol)
+ValueError: math domain error
